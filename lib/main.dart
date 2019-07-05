@@ -21,10 +21,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String _quote = "PLACEHOLDER FOR QUOTES THIS IS A PLACEHOLDER HELLO WORLD.";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.tealAccent,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("Quotes To Ponder"),
       ),
@@ -43,17 +44,43 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text("Quote Title"),
                       ),
                     ),
-                    Align(alignment: Alignment.centerRight,child: IconButton(padding: const EdgeInsets.only(top: 16.0),
-                    icon: Icon(Icons.save_alt,color: Colors.white),onPressed: (){
-                      print("you need to add function to quote to phone here...");
-                    },),)
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                        padding: const EdgeInsets.only(top: 10.0),
+                        icon: Icon(Icons.save_alt, color: Colors.white),
+                        onPressed: () {
+                          print(
+                              "you need to add function to quote to phone here...");
+                        },
+                      ),
+                    )
                   ],
-                )
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: _quote != null
+                        ? Text(
+                            '$_quote',
+                            style: TextStyle(fontSize: 34.0, height: 1.15,fontFamily: 'Cinzel'),
+                          )
+                        : CircularProgressIndicator(),
+                  ),
+                ),
+                Text("Author's Name Goes Here.") //<.start here...
               ],
             ),
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print("function to open notepad ");
+        },
+        child: Icon(Icons.note_add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat
     );
   }
 }
