@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'package:html/parser.dart' as html;
+import 'dart:core';
+import 'package:intl/intl.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,7 +25,38 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _quote = "PLACEHOLDER FOR QUOTES THIS IS A PLACEHOLDER HELLO WORLD.";
+  String _quote ;
+  String _author;
+  var _date;
+  void getDate(){
+    var now = new DateTime.now();
+    var formatter = new DateFormat('dd-MM-yyyy');
+    String date = formatter.format(now);
+    setState(() {
+      _date = date;
+    });
+  }
+  Future<void> scrapeQuote() async{
+    String url = 'http://quotes.toscrape.com/random';
+    try{
+      http.Response response = await http.get(url);
+      final document = html.parse(response.body);
+      final myQuote = document.querySelector("div.quote> span.text").innerHtml;
+      final author =  document.querySelector("div.quote> span> small.author").innerHtml;
+      setState(() {
+        _quote = myQuote;
+        _author = author;
+      });
+    }
+    catch (e){}
+  }
+  @override
+  void initState(){
+    super.initState();
+    scrapeQuote();
+    getDate();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: Alignment.bottomCenter,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20.0),
-                        child: Text("Quote Title"),
+                        child: Text("$_date", style: TextStyle(fontSize: 16.0),),
                       ),
                     ),
                     Align(
@@ -59,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   child: Align(
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.center,
                     child: _quote != null
                         ? Text(
                             '$_quote',
@@ -68,7 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         : CircularProgressIndicator(),
                   ),
                 ),
-                Text("Author's Name Goes Here.") //<.start here...
+
+                Text('~$_author') //<.start here...
               ],
             ),
           ),
