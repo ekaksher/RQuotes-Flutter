@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _launchurl() {
-    const urls = "https://github.com/ekaksher/QuoteToPonder";
+    const urls = "https://github.com/ekaksher/RQuotes_Flutter";
     launch(urls);
   }
 
