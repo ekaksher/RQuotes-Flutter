@@ -1,8 +1,8 @@
 # QUOTES TO PONDER.
 
-#SCREENSHOTS
-![](Screenshots/xrdark.png)
-![](Screenshots/xrlight.png)
+#SCREENSHOTS<br>
+![](Screenshots/xrdark.png)<br>
+![](Screenshots/xrlight.png)<br>
 ![](Screenshots/oneplus7dark.jpeg)
 
 A new Flutter project.
