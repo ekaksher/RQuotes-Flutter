@@ -1,5 +1,5 @@
-name: productapp
-description: A new Flutter project.
+name: RQuotes
+description: Scrapes Quotes And Generates Them In A Beautiful Format.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -26,6 +26,7 @@ dependencies:
   html: ^0.13.3+3
   http: ^0.12.0+2
   intl: 0.15.7
+  url_launcher: ^5.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

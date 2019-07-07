@@ -1,5 +1,10 @@
 # QUOTES TO PONDER.
 
+#SCREENSHOTS
+![](Screenshots/xrdark.png)
+![](Screenshots/xrlight.png)
+![](Screenshots/oneplus7dark.jpeg)
+
 A new Flutter project.
 
 ## Getting Started
