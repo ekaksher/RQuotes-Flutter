@@ -4,11 +4,10 @@
 ![](Screenshots/xrdark.png)<br>
 ![](Screenshots/xrlight.png)<br>
 ![](Screenshots/oneplus7dark.jpeg)
-
-A new Flutter project.
-
+<br><br>
+<b>PLEASE REPORT ANY ISSUES YOU FIND. THANKYOU</b><br>
 ## Getting Started
-
+A new Flutter project.<br>
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
